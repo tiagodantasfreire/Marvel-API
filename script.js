@@ -26,7 +26,6 @@ const avengers = [
     "Doctor Strange",
     "Bucky",
     "Captain Marvel (Carol Danvers)",
-    "Valkyrie (Ultimate)",
     "Wong",
     "Mantis",
     "Rocket Raccoon",
@@ -43,17 +42,16 @@ avengers.map(hero => {
       hero = heros.data.results[0];
 
       const heroImg = `${hero.thumbnail.path}/portrait_xlarge.${hero.thumbnail.extension}`
-     //  const heroImg = './img_test'
 
       slider.innerHTML += `
         <div class="hero">
           <img src=${heroImg} alt=${hero.name} />
           <p>${hero.name}</p>
         </div>
-      `
-    });
-});
-
+        `
+        });
+      });
+      
 
 // SLIDER
 const nextEl = document.querySelector('#next');
@@ -65,11 +63,9 @@ nextEl.addEventListener('click', onNextClick);
 previousEl.addEventListener('click', onPreviousClick);
 
 function onNextClick() {
-  const imgWidth = 690;
-  sliderEl.scrollLeft += imgWidth;
+    sliderEl.scrollLeft += screen.width / 2
 }
 
 function onPreviousClick() {
-  const imgWidth = 690;
-  sliderEl.scrollLeft -= imgWidth;
+  sliderEl.scrollLeft -= screen.width / 2;
 }
